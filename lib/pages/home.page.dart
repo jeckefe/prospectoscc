@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prospectoscc/pages/captura.page.dart';
+import 'package:prospectoscc/pages/login.page.dart';
 import 'package:prospectoscc/pages/seguimiento.page.dart';
 import 'package:provider/provider.dart';
 
@@ -45,7 +46,8 @@ class HomePage extends StatelessWidget {
             } else {
               bloc.setToken('');
               bloc.setLogged(false);
-              Navigator.popAndPushNamed(context, '/');
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (_) => LoginPage()));
             }
           },
         ),

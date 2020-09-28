@@ -4,8 +4,10 @@ import 'package:flutter/foundation.dart';
 import 'package:prospectoscc/models/login.req.model.dart';
 import 'package:prospectoscc/models/login.res.model.dart';
 import 'package:prospectoscc/services/api.service.dart';
+import 'package:prospectoscc/services/preferencias.service.dart';
 
 class UserBloc with ChangeNotifier {
+  PreferenciasUsuario _prefs = PreferenciasUsuario();
   LoginRequest request;
   String errorMessage;
   String user;
@@ -63,5 +65,13 @@ class UserBloc with ChangeNotifier {
 
   String getPassword() {
     return password;
+  }
+
+  String getToken() {
+    return _prefs.token;
+  }
+
+  bool getLogged() {
+    return _prefs.isLogged;
   }
 }

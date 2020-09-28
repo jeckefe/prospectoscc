@@ -5,6 +5,7 @@ import 'package:prospectoscc/pages/captura.page.dart';
 import 'package:prospectoscc/pages/home.page.dart';
 import 'package:prospectoscc/pages/login.page.dart';
 import 'package:prospectoscc/pages/seguimiento.page.dart';
+import 'package:prospectoscc/pages/splash.page.dart';
 import 'package:prospectoscc/services/preferencias.service.dart';
 import 'package:provider/provider.dart';
 
@@ -44,7 +45,8 @@ class MyApp extends StatelessWidget {
           ),
           initialRoute: '/',
           routes: {
-            '/': (_) => new LoginPage(),
+            '/': (_) => new SplashPage(),
+            'login': (_) => new LoginPage(),
             'home': (_) => new HomePage(),
             'captura': (_) => new CapturaPage(),
             'seguimiento': (_) => new SeguimientoPage(),
