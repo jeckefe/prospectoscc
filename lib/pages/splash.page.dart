@@ -12,6 +12,12 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 2), _verificarSession);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -44,23 +50,15 @@ class _SplashPageState extends State<SplashPage> {
     );
   }
 
-  @override
-  void initState() {
-    Future.delayed(Duration(seconds: 2), _verificarSession);
-    super.initState();
-  }
-
   void _verificarSession() {
     final bloc = Provider.of<UserBloc>(context, listen: false);
-    print(bloc.getLogged());
-    print(bloc.getToken().isNotEmpty);
     if (bloc.getLogged() && (bloc.getToken().isNotEmpty)) {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (_) => HomePage(),
+        builder: (_) => new HomePage(),
       ));
     } else {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (_) => LoginPage(),
+        builder: (_) => new LoginPage(),
       ));
     }
   }

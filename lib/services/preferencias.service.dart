@@ -38,7 +38,7 @@ class PreferenciasUsuario {
 
   /// Obtener el estado si el usuario esta logueado
   get isLogged {
-    return _prefs.getBool('isLogged') ?? '';
+    return _prefs.getBool('isLogged') ?? false;
   }
 
   /// Guardar el estado de si el usuario se logueo exitosamente
