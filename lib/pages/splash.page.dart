@@ -52,8 +52,9 @@ class _SplashPageState extends State<SplashPage> {
 
   void _verificarSession() {
     final bloc = Provider.of<UserBloc>(context, listen: false);
-    if (bloc.getLogged() &&
-        (bloc.getToken() != '' && bloc.getToken() != null)) {
+    print(bloc.getLogged());
+    print(bloc.getToken().isNotEmpty);
+    if (bloc.getLogged() && (bloc.getToken().isNotEmpty)) {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (_) => HomePage(),
       ));
