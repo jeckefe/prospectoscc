@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:prospectoscc/bloc/user.bloc.dart';
-import 'package:prospectoscc/models/login.req.model.dart';
+import 'package:prospectoscc/pages/home.page.dart';
 import 'package:prospectoscc/utils/alert.utils.dart';
 import 'package:prospectoscc/widgets/button.circular.dart';
 import 'package:prospectoscc/widgets/textfield.rounded.dart';
@@ -124,17 +124,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   _logIn(UserBloc bloc) async {
-    bloc.setLoading(true);
-
-    final request = LoginRequest();
-    request.email = bloc.getUser();
-    request.password = bloc.getPassword();
-    final response = await bloc.loginUsuario(request);
-
+    final response = await bloc.loginUsuario();
     if (response.error == true) {
       mostrarAlerta(context, response.message.toString());
     } else {
-      Navigator.popAndPushNamed(context, 'home');
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (_) => HomePage(),
+      ));
     }
   }
 }

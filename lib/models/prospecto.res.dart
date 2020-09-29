@@ -1,16 +1,16 @@
 // To parse this JSON data, do
 //
-//     final errorResponse = errorResponseFromJson(jsonString);
+//     final prospectoRes = prospectoResFromJson(jsonString);
 
 import 'dart:convert';
 
-ErrorResponse errorResponseFromJson(String str) =>
-    ErrorResponse.fromJson(json.decode(str));
+ProspectoRes prospectoResFromJson(String str) =>
+    ProspectoRes.fromJson(json.decode(str));
 
-String errorResponseToJson(ErrorResponse data) => json.encode(data.toJson());
+String prospectoResToJson(ProspectoRes data) => json.encode(data.toJson());
 
-class ErrorResponse {
-  ErrorResponse({
+class ProspectoRes {
+  ProspectoRes({
     this.error,
     this.message,
     this.data,
@@ -20,7 +20,7 @@ class ErrorResponse {
   String message;
   dynamic data;
 
-  factory ErrorResponse.fromJson(Map<String, dynamic> json) => ErrorResponse(
+  factory ProspectoRes.fromJson(Map<String, dynamic> json) => ProspectoRes(
         error: json["error"],
         message: json["message"],
         data: json["data"],

@@ -7,6 +7,7 @@ class TextFieldRounded extends StatelessWidget {
   final double radius;
   final bool isPassword;
   final void Function(String text) onChanged;
+  final void Function(String text) validator;
   final TextEditingController controller;
 
   const TextFieldRounded(
@@ -17,7 +18,8 @@ class TextFieldRounded extends StatelessWidget {
       this.isPassword,
       this.controller,
       this.errorText,
-      this.onChanged})
+      this.onChanged,
+      this.validator})
       : super(key: key);
 
   @override
@@ -25,7 +27,7 @@ class TextFieldRounded extends StatelessWidget {
     return Container(
       child: TextFormField(
         onChanged: this.onChanged,
-        validator: (input) => input.isEmpty ? "Capture el dato porfavor" : '',
+        validator: this.validator,
         obscureText: this.isPassword,
         keyboardType: this.keyboardType,
         cursorColor: Colors.green,

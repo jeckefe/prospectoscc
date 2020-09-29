@@ -27,32 +27,26 @@ class PreferenciasUsuario {
   }
 
   /// Obtener de token en shared preferences
-  get token {
-    return _prefs.getString('token') ?? '';
-  }
+  String getToken() => _prefs.getString('token') ?? '';
 
   /// Guardar token en shared preferences
-  set token(String value) {
+  void setToken(String value) {
     _prefs.setString('token', value);
   }
 
   /// Obtener el estado si el usuario esta logueado
-  get isLogged {
-    return _prefs.getBool('isLogged') ?? false;
-  }
+  bool getLogged() => _prefs.getBool('isLogged') ?? false;
 
   /// Guardar el estado de si el usuario se logueo exitosamente
-  set isLogged(bool value) {
+  void setLogged(bool value) {
     _prefs.setBool('isLogged', value);
   }
 
   /// Obtener la ultima pagina visitada al minimizar la app
-  get ultimaPagina {
-    return _prefs.getString('ultimaPagina') ?? 'login';
-  }
+  String getUltimaPagina() => _prefs.getString('ultimaPagina') ?? 'login';
 
   /// Guardar ultima pagina visitada
-  set ultimaPagina(String value) {
+  void setUltimaPagina(String value) {
     _prefs.setString('ultimaPagina', value);
   }
 }

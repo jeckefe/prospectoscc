@@ -15,7 +15,10 @@ class UserBloc with ChangeNotifier {
   String errorMessagePw;
   bool loading = false;
 
-  Future<LoginResponse> loginUsuario(LoginRequest request) async {
+  Future<LoginResponse> loginUsuario() async {
+    final request = LoginRequest();
+    request.email = this.getUser();
+    request.password = this.getPassword();
     setLoading(true);
     final response = await ProspectosService().loginUsuario(request);
     setLoading(false);
@@ -68,10 +71,10 @@ class UserBloc with ChangeNotifier {
   }
 
   String getToken() {
-    return _prefs.token;
+    return _prefs.getToken();
   }
 
   bool getLogged() {
-    return _prefs.isLogged;
+    return _prefs.getLogged();
   }
 }

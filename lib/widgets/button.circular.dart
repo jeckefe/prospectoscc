@@ -34,7 +34,7 @@ class _ButtonCircularState extends State<ButtonCircular> {
   Widget build(BuildContext context) {
     return ButtonTheme(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      minWidth: MediaQuery.of(context).size.width * 0.1,
+      minWidth: MediaQuery.of(context).size.width * 0.3,
       height: 50,
       child: RaisedButton(
           elevation: 10,

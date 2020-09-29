@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
           elevation: 0,
           backgroundColor: Colors.transparent,
           title: Text(
-            'Bienvenido',
+            bloc.getTitle(),
             style: TextStyle(color: Colors.green),
           ),
         ),
@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-              title: Text('Prospectos'),
+              title: Text('Capturar'),
               icon: Icon(Icons.assignment),
             ),
             BottomNavigationBarItem(
@@ -43,6 +43,9 @@ class HomePage extends StatelessWidget {
           onTap: (index) {
             if (index != 2) {
               bloc.setPage(index);
+              index == 1
+                  ? bloc.setTitle('Seguimiento de prospectos')
+                  : bloc.setTitle('Capturar prospecto');
             } else {
               bloc.setToken('');
               bloc.setLogged(false);

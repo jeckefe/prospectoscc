@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:prospectoscc/bloc/captura.bloc.dart';
 import 'package:prospectoscc/bloc/home.bloc.dart';
+import 'package:prospectoscc/bloc/seguimiento.bloc.dart';
 import 'package:prospectoscc/pages/captura.page.dart';
 import 'package:prospectoscc/pages/home.page.dart';
 import 'package:prospectoscc/pages/login.page.dart';
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (_) => new UserBloc()),
           ChangeNotifierProvider(create: (_) => new HomeBloc()),
+          ChangeNotifierProvider(create: (_) => new CapturaBloc()),
+          ChangeNotifierProvider(create: (_) => new SeguimientoBloc()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

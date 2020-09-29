@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-void mostrarAlerta(BuildContext context, String mensaje) {
-  showDialog(
+void mostrarAlerta(BuildContext context, String mensaje) async {
+  await showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
@@ -9,7 +9,10 @@ void mostrarAlerta(BuildContext context, String mensaje) {
           content: Text(mensaje),
           actions: <Widget>[
             FlatButton(
-                child: Text('Ok'), onPressed: () => Navigator.of(context).pop())
+                child: Text('Ok'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                })
           ],
         );
       });

@@ -9,6 +9,7 @@ class HomeBloc with ChangeNotifier {
   LoginRequest request;
   bool loading = false;
   String token;
+  String titulo = 'Bienvenido';
   int index = 0;
 
   void setLoading(value) {
@@ -30,10 +31,21 @@ class HomeBloc with ChangeNotifier {
   }
 
   void setToken(value) {
-    _prefs.token = value;
+    _prefs.setToken(value);
+    notifyListeners();
   }
 
   void setLogged(value) {
-    _prefs.isLogged = value;
+    _prefs.setLogged(value);
+    notifyListeners();
+  }
+
+  String getTitle() {
+    return titulo;
+  }
+
+  void setTitle(value) {
+    titulo = value;
+    notifyListeners();
   }
 }
