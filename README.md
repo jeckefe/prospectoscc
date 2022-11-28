@@ -1,6 +1,6 @@
 # Prospectoscc
 
-Aplicación movil para la captura de prospectos a clientes de ConCredito.
+Aplicación movil para la captura de prospectos a clientes de una fintech.
 
 - Esta aplicación es una practica para entrevista, la empresa no tiene ninguna responsabilidad, el desarrollador se deslinda del uso que puedan brindar terceras personas.
 
